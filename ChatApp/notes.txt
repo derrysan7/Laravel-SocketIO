@@ -1,0 +1,3 @@
+create package.json, isi dengan: { }, save
+run npm install --save express
+
