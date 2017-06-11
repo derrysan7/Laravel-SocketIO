@@ -12,7 +12,9 @@ app.get('/', function(request,response) {
 //when a connection between the client and server is made. 
 //when we have a connection, we will trigger this:
 io.on('connection', function(socket) {
+	//socket.on: listen for an event
 	socket.on('chat.message', function(message){
+		//broadcast message to all our various connection, to all the listener using the chat app
 		io.emit('chat.message',message)
 	});
 });
