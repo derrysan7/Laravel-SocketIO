@@ -5,6 +5,9 @@
 </head>
 <body>
 	<div id="chat">
+		<ul id="messages">
+		<li v-for="message in messages">{{ message }}</li>
+		</ul>
 		<form v-on:submit="send">
 			<input v-model="message">
 			<button>Send</button>
@@ -21,7 +24,18 @@
 			el: '#chat',
 
 			data: {
+				//initialize messages into empty array
+				messages: [],
+				//initialize message into empty string
 				message: ''
+			},
+
+			mounted: function() {
+				//i want to listen for when we have a new text message that will accept the message that was sent from the server, and then update something
+				socket.on('chat.message', function(message) {
+					//push message to the array above
+					this.messages.push(message);
+				}.bind(this));
 			},
 
 			methods: {

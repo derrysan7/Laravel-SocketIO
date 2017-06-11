@@ -13,6 +13,6 @@ app.get('/', function(request,response) {
 //when we have a connection, we will trigger this:
 io.on('connection', function(socket) {
 	socket.on('chat.message', function(message){
-		console.log('New Message: ' + message);
+		io.emit('chat.message',message)
 	});
 });
