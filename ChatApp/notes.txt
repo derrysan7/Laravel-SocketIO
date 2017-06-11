@@ -6,3 +6,4 @@ http://localhost:3000/
 
 https://cdnjs.com/
 search socket.io, copy
+npm install --save socket.io
