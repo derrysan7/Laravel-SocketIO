@@ -17,4 +17,8 @@ io.on('connection', function(socket) {
 		//broadcast message to all our various connection, to all the listener using the chat app
 		io.emit('chat.message',message)
 	});
+
+	socket.on('disconnect', function() {
+		io.emit('chat.message', 'User has disconnected.')
+	});
 });
