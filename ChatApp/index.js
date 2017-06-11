@@ -12,5 +12,7 @@ app.get('/', function(request,response) {
 //when a connection between the client and server is made. 
 //when we have a connection, we will trigger this:
 io.on('connection', function(socket) {
-	console.log('A connection was made.');
+	socket.on('chat.message', function(message){
+		console.log('New Message: ' + message);
+	});
 });
