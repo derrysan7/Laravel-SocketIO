@@ -4,11 +4,29 @@
 	<title>Document</title>
 </head>
 <body>
-	<h1>Hello World</h1>
+	<div id="chat">
+		<form v-on:submit="send">
+			<input>
+			<button>Send</button>
+		</form>
+	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.2/socket.io.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
 	<script>
 		var socket = io();
+
+		new Vue({
+			//element binding
+			el: '#chat',
+
+			methods: {
+				send: function(e){
+					alert('send');
+					e.preventDefault();
+				}				
+			}
+		})
 	</script>
 </body>
 </html>
